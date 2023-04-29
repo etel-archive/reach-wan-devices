@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { AiFillPlayCircle, AiFillDelete } from 'react-icons/ai';
+import { AiFillPlayCircle } from 'react-icons/ai';
 import { RiRefreshFill, RiStopCircleFill } from 'react-icons/ri';
 
 const DeviceCard = ({ device }) => {
@@ -33,7 +33,6 @@ const DeviceCard = ({ device }) => {
           <AiFillPlayCircle size={25} color="#adadad" />
           <RiStopCircleFill size={25} color="#adadad" />
           <RiRefreshFill size={25} color="green" />
-          {/* <AiFillDelete size={25} color="crimson" /> */}
         </div>
       </div>
     </div>

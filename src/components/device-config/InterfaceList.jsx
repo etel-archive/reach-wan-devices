@@ -1,4 +1,8 @@
-import { useGetData } from '../../hooks';
+import { useRef } from 'react';
+import { 
+  useGetData, 
+  // usePostData 
+} from '../../hooks';
 import '../css/interface.css';
 import { MoonLoader } from 'react-spinners';
 
@@ -50,6 +54,30 @@ const InterfaceList = () => {
           </tbody>
         </table>
       )}
+      <hr />
+      <div className="add-interface">
+        <AddInterface />
+      </div>
+    </>
+  );
+};
+
+const AddInterface = () => {
+  const intRef = useRef();
+  // const { isLoading, postData } = usePostData();
+
+  return (
+    <>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log(intRef.current.value);
+          // postData()
+        }}
+      >
+        <input type="text" ref={intRef} /> &nbsp;
+        <input type="submit" value={'Save Interface'} />
+      </form>
     </>
   );
 };

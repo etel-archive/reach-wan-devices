@@ -1,11 +1,14 @@
 import './App.css';
-import { Devices, InterfaceList } from './components';
+import {
+  Devices,
+  // InterfaceList,
+} from './components';
 
 function App() {
   return (
     <>
-      {/* <Devices /> */}
-      <InterfaceList />
+      <Devices />
+      {/* <InterfaceList /> */}
     </>
   );
 }

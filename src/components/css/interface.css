@@ -49,3 +49,9 @@ table th {
 table th.PrimaryFont {
   text-transform: none;
 }
+
+/* ----------------------------- */
+
+.add-interface {
+  float: right;
+}
