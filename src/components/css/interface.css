@@ -1,0 +1,51 @@
+table {
+  width: 100%;
+}
+table thead tr {
+  background: #dcd5c5;
+}
+table thead tr h1,
+table thead tr h2,
+table thead tr .h1,
+table thead tr .h2,
+table thead tr h3,
+table thead tr .h3,
+table thead tr h4,
+table thead tr .h4 {
+  color: #151515;
+}
+table thead tr a {
+  color: #0075b0;
+}
+table thead tr a:hover,
+table thead tr a:focus {
+  color: white;
+}
+table tbody tr:nth-of-type(even) {
+  background: #e2e2e2;
+}
+table td,
+table th {
+  padding: 8px 14px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+table td a,
+table th a {
+  font-weight: bold;
+  color: #00918a;
+}
+table th {
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-family: 'Gotham SSm A', 'Gotham SSm B', Helvetica, sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+  max-width: 800px;
+  line-height: inherit;
+  color: #151515;
+}
+table th.PrimaryFont {
+  text-transform: none;
+}

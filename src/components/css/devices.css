@@ -1,0 +1,47 @@
+.devices {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+}
+
+.card {
+  border: 2px solid #adadad;
+  border-radius: 5px;
+  width: 30rem;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.card > h3 {
+  color: #032161;
+  margin: 2px;
+}
+
+.device-details-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.device-actions > * {
+  flex: auto;
+  cursor: pointer;
+  border: #adadad 1px solid;
+  margin: 2px;
+  padding: 1px;
+}
+
+.conn-info > span {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  user-select: none;
+  margin-right: 10px;
+}
+
+.success {
+  background: green;
+}
+
+.danger {
+  background: crimson;
+}
