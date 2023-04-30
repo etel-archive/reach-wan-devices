@@ -2,10 +2,9 @@ import { useRef } from 'react';
 import {
   useGetData,
   usePostData,
-  // usePostData
 } from '../../hooks';
 import '../css/interface.css';
-import { MoonLoader } from 'react-spinners';
+import Loading from '../utils/Loading';
 
 const InterfaceList = () => {
   const { data: deviceInterfaces, isLoading } = useGetData('/interfaces');
@@ -13,12 +12,7 @@ const InterfaceList = () => {
   return (
     <>
       <h2>Device configuration</h2>
-      {isLoading && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          <MoonLoader size={30} />
-          <h3>Loading...</h3>
-        </div>
-      )}
+      {isLoading && <Loading text={'Loading...'} iconSize={30} />}
       {isLoading || deviceInterfaces?.length === 0 ? (
         <div>No devices</div>
       ) : (

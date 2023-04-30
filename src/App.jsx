@@ -1,14 +1,16 @@
 import './App.css';
 import {
   // Devices,
-  InterfaceList,
+  // InterfaceList,
+  TunnelConfig,
 } from './components';
 
 function App() {
   return (
     <>
       {/* <Devices /> */}
-      <InterfaceList />
+      {/* <InterfaceList /> */}
+      <TunnelConfig />
     </>
   );
 }
