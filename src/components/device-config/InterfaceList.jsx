@@ -1,7 +1,8 @@
 import { useRef } from 'react';
-import { 
-  useGetData, 
-  // usePostData 
+import {
+  useGetData,
+  usePostData,
+  // usePostData
 } from '../../hooks';
 import '../css/interface.css';
 import { MoonLoader } from 'react-spinners';
@@ -64,19 +65,21 @@ const InterfaceList = () => {
 
 const AddInterface = () => {
   const intRef = useRef();
-  // const { isLoading, postData } = usePostData();
+  const { isLoading, postData, error } = usePostData();
 
   return (
     <>
       <form
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
-          console.log(intRef.current.value);
-          // postData()
+          const interface_name = intRef.current.value;
+          const res = await postData('/interface_name', { interface_name });
+          console.log(res);
         }}
       >
-        <input type="text" ref={intRef} /> &nbsp;
-        <input type="submit" value={'Save Interface'} />
+        {error && <div className="error">Something went wrong...</div>}
+        <input type="text" ref={intRef} required disabled={isLoading} /> &nbsp;
+        <input type="submit" value={'Save Interface'} disabled={isLoading} />
       </form>
     </>
   );
