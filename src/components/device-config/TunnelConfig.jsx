@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { usePostData } from '../../hooks';
 import { useState } from 'react';
-import Loading from '../utils/Loading';
+import { Error, Loading, Success } from '../utils';
 
 const InterfaceConfigSetting = () => {
   const { isLoading, postData, error } = usePostData();
@@ -21,11 +21,8 @@ const InterfaceConfigSetting = () => {
       <h1>Tunnel Configuration</h1>
       {error && <div className="error">Something went wrong...</div>}
       {isLoading && <Loading text={'Save...'} iconSize={20} />}
-      {success && (
-        <div>
-          {JSON.stringify(success)} <br /> <br />
-        </div>
-      )}
+      {error && <Error />}
+      {success && <Success success={success} />}
       <form
         onSubmit={async (e) => {
           e.preventDefault();

@@ -1,10 +1,8 @@
 import { useRef } from 'react';
-import {
-  useGetData,
-  usePostData,
-} from '../../hooks';
+import { useGetData, usePostData } from '../../hooks';
 import '../css/interface.css';
-import Loading from '../utils/Loading';
+import '../css/global.css';
+import { Loading } from '../utils';
 
 const InterfaceList = () => {
   const { data: deviceInterfaces, isLoading } = useGetData('/interfaces');

@@ -1,8 +1,7 @@
 import DeviceCard from './DeviceCard';
 import '../css/devices.css';
 import { useGetData } from '../../hooks';
-
-import { MoonLoader } from 'react-spinners';
+import { Loading } from '../utils';
 
 const Devices = () => {
   const { data: devices, isLoading } = useGetData('/');
@@ -11,12 +10,7 @@ const Devices = () => {
     <>
       <h2>Devices</h2>
       <div className="devices">
-        {isLoading && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-            <MoonLoader size={30} />
-            <h3>Loading...</h3>
-          </div>
-        )}
+        {isLoading && <Loading text={'Loading...'} iconSize={30} />}
         {!isLoading && devices?.length === 0 ? (
           <div>No devices</div>
         ) : (

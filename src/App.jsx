@@ -2,7 +2,12 @@ import './App.css';
 import {
   // Devices,
   // InterfaceList,
-  TunnelConfig,
+  // TunnelConfig,
+  // OutBoundRule,
+  // InBoundRule,
+  // PortForwording,
+  // Natting,
+  VxlanTunnelDetails,
 } from './components';
 
 function App() {
@@ -10,7 +15,12 @@ function App() {
     <>
       {/* <Devices /> */}
       {/* <InterfaceList /> */}
-      <TunnelConfig />
+      {/* <TunnelConfig /> */}
+      {/* <OutBoundRule /> */}
+      {/* <InBoundRule /> */}
+      {/* <PortForwording /> */}
+      {/* <Natting /> */}
+      <VxlanTunnelDetails />
     </>
   );
 }

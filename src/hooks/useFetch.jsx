@@ -22,7 +22,6 @@ const useGetData = (path) => {
           setError('Something went wrong');
           return;
         }
-        
       } catch (error) {
         setError('Something went wrong');
       } finally {
