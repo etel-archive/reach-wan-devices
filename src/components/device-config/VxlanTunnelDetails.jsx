@@ -51,7 +51,6 @@ const VxlanTunnelDetails = () => {
                     deleteData(
                       `/vxlan_delete?vxlan_src_ip=${detail.src_address}&vxlan_dst_ip=${detail.dst_address}`
                     );
-                    window.location.reload();
                   }}
                 >
                   <AiOutlineDelete size={20} color="crimson" />

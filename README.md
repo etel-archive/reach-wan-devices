@@ -1,70 +1,67 @@
-# Project Documentation: reach-wan-devices
+# Integration Docs
 
-Welcome to the documentation for the `reach-wan-devices` repository! This documentation aims to provide an overview of the project, installation instructions, usage examples, and any other relevant information to help you understand and use the project effectively.
+## Copy the code folders/files
 
-## Table of Contents
+- Copy components folder inside the main project as components2 or something else
 
-1. [Introduction](#introduction)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Configuration](#configuration)
-5. [Contributing](#contributing)
-6. [License](#license)
+- Copy the hooks the folder inside main project.
 
-## Introduction
+- Copy the constants folder inside main project.
 
-Provide a brief introduction to the project. Describe its purpose, goals, and any relevant background information. Explain what problem the project aims to solve and its intended audience.
+## Instalation of dependencies:
 
-## Installation
+- Add the below to the dependencies list:
 
-Include instructions on how to install and set up the project. Provide step-by-step instructions for cloning the repository, installing any dependencies, and configuring the environment if necessary. Specify any system requirements or prerequisites.
+  ```
+    "react-icons": "^4.8.0",
+    "react-spinners": "^0.13.8"
+  ```
 
-## Usage
+- Run installation script: `npm install`
 
-Explain how to use the project. Provide examples or code snippets to demonstrate typical usage scenarios. Describe the main features and functionality of the project and explain how users can interact with it.
+## import components
 
-## Configuration
+- Import the necessary components where ever required:
+  eg: You need the Natting component inside the natting page, you would do it as:
 
-If your project requires any configuration or customization, provide instructions on how to configure it. Explain any configuration options, settings, or files that users may need to modify to tailor the project to their specific needs.
+  ```jsx
+  import { Natting } from 'components';
+  ```
 
-## Contributing
+  in order to use this component you would do this:
 
-Encourage users and developers to contribute to your project. Provide guidelines for contributing, including information on how to submit bug reports, feature requests, or pull requests. Specify any coding conventions, style guidelines, or standards that contributors should follow.
+  ```jsx
+  <Natting />
 
-## License
+  // See App.jsx for more examples.
+  ```
 
-Specify the license under which the project is released. Include information about the license type and any relevant terms and conditions.
+## Styling issue?
 
-## Conclusion
+- If it seems that styles are not properly applied then try importing `components2/css/global.css` in the `App.jsx` file.
 
-This is a basic template for creating documentation for your `reach-wan-devices` repository. You can customize and expand upon this template based on your project's specific requirements and details. Remember to provide clear and concise instructions, examples, and explanations to help users understand and utilize your project effectively.
+## Usage of reusable stuff:
 
-Good luck with your documentation, and feel free to ask if you have any further questions!
+### Constants
 
----
+- Inside constants we have a file `index.js` where in we have a constant named `BACKEND_BASE_URL` which we can import anywhere in our project as:
 
-# Detailed Docs - (REACH-WAN)
+  ```jsx
+  import { BACKEND_BASE_URL } from '../constants';
+  ```
 
-## Devices Component Documentation
+### Components2/utils:
 
-The `Devices` component is responsible for rendering a list of devices.
+- Inside the `components2/utils` folder we have three reusable components.
 
-### Usage
+  - `Loading.jsx`: Can be used while something is being loaded.
 
-To use the `Devices` component, follow these steps:
+  - `Error.jsx`: When something goes wrong while loading some data or anything else.
 
-1. Import the `Devices` component into your project:
+  - `Success.jsx`: When something is successful.
 
-   ```jsx
-   import Devices from './Devices';
-   ```
+- import:
 
-2. Use the `Devices` component in your code:
-
-   ```jsx
-   <Devices />
-   ```
-
-### Props
-
-The Devices component does not accept any props.
+  ```jsx
+  import { Loading, Error, Success } from '../utils';
+  ```

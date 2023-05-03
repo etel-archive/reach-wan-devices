@@ -1,12 +1,14 @@
-import { useGetData } from '../../hooks';
+import { AiOutlineDelete } from 'react-icons/ai';
+import { useDelete, useGetData } from '../../hooks';
 import { Loading } from '../utils';
+import '../css/global.css';
 
 const FirewallPolicy = () => {
   return (
     <div>
       <h1>Firewall Policy</h1>
-      <InboundRuleStatus />
       <OutboundRuleStatus />
+      <InboundRuleStatus />
     </div>
   );
 };
@@ -16,12 +18,14 @@ const OutboundRuleStatus = () => {
     '/outbound_rule_status'
   );
 
+  const { deleteData, isLoading: isDeleting } = useDelete();
+
   return (
     <>
       <h2>Outbound Rule Status</h2>
       {isLoading && <Loading text={'Loading...'} iconSize={30} />}
       {isLoading || !outboundRuleStatus?.length ? (
-        <div>No inbound rule status data</div>
+        <div>No outbound rule status data</div>
       ) : (
         <table>
           <thead>
@@ -30,17 +34,38 @@ const OutboundRuleStatus = () => {
               <th>Interface</th>
               <th>Port</th>
               <th>Source</th>
+              <th>Rule No</th>
               <th>Action</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
-            {outboundRuleStatus.map((entry, index) => (
-              <tr key={index}>
+            {outboundRuleStatus.map((entry) => (
+              <tr key={entry.rule_number}>
                 <td>{entry.destination}</td>
                 <td>{entry.interface}</td>
                 <td>{entry.port}</td>
                 <td>{entry.source}</td>
-                <td>{entry.action}</td>
+                <td>{entry.rule_number}</td>
+                <td>
+                  {entry.action.toLowerCase() === 'deny' ? (
+                    <>🚫 DENY</>
+                  ) : (
+                    '✅ ' + entry.action
+                  )}
+                </td>
+                <td
+                  onClick={() =>
+                    deleteData('/ufw_delete?rule_number=' + entry.rule_number)
+                  }
+                  aria-disabled={isDeleting}
+                >
+                  <AiOutlineDelete
+                    size={20}
+                    color="crimson"
+                    style={{ cursor: 'pointer' }}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>
@@ -54,6 +79,8 @@ const InboundRuleStatus = () => {
   const { data: inboundRuleStatus, isLoading } = useGetData(
     '/inbound_rule_status'
   );
+
+  const { deleteData, isLoading: isDeleting } = useDelete();
 
   return (
     <>
@@ -69,7 +96,9 @@ const InboundRuleStatus = () => {
               <th>Interface</th>
               <th>Port</th>
               <th>Source</th>
+              <th>Rule No</th>
               <th>Action</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -79,7 +108,26 @@ const InboundRuleStatus = () => {
                 <td>{entry.interface}</td>
                 <td>{entry.port}</td>
                 <td>{entry.source}</td>
-                <td>{entry.action}</td>
+                <td>{entry.rule_number}</td>
+                <td>
+                  {entry.action.toLowerCase() === 'deny' ? (
+                    <>🚫 DENY</>
+                  ) : (
+                    '✅ ' + entry.action
+                  )}
+                </td>
+                <td
+                  onClick={() =>
+                    deleteData('/ufw_delete?rule_number=' + entry.rule_number)
+                  }
+                  aria-disabled={isDeleting}
+                >
+                  <AiOutlineDelete
+                    size={20}
+                    color="crimson"
+                    style={{ cursor: 'pointer' }}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>

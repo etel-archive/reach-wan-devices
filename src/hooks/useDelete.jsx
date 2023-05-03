@@ -17,6 +17,7 @@ const useDelete = () => {
 
       if (response.ok) {
         setSuccess(true);
+        window.location.reload();
       } else {
         setError('Something went wrong');
       }
