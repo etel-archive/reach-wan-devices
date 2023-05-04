@@ -3,12 +3,12 @@ import { useGetData, usePostData } from '../../hooks';
 import '../css/interface.css';
 import { Loading } from '../utils';
 
-const InterfaceList = () => {
+const VppQosInterfaceList = () => {
   const { data: deviceInterfaces, isLoading } = useGetData('/interfaces');
 
   return (
     <>
-      <h1>Device configuration</h1>
+      <h2>Device configuration</h2>
       {isLoading && <Loading text={'Loading...'} iconSize={30} />}
       {isLoading || deviceInterfaces?.length === 0 ? (
         <div>No devices</div>
@@ -76,4 +76,4 @@ const AddInterface = () => {
   );
 };
 
-export default InterfaceList;
+export default VppQosInterfaceList;

@@ -1,7 +1,6 @@
 import { AiOutlineDelete } from 'react-icons/ai';
 import { useDelete, useGetData } from '../../hooks';
 import { Loading } from '../utils';
-import '../css/global.css';
 
 const FirewallPolicy = () => {
   return (

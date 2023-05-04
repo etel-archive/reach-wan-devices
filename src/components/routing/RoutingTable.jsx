@@ -6,7 +6,7 @@ const RoutingTable = () => {
 
   return (
     <>
-      <h2>Routing Table</h2>
+      <h1>Routing Table</h1>
       {isLoading && <Loading text={'Loading...'} iconSize={30} />}
       {isLoading || !routingTable?.length ? (
         <div>No routing table data</div>

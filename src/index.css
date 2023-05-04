@@ -61,3 +61,127 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* ===========IMPORTANT================= */
+/* Global Css to be included in the css file */
+
+.error {
+  color: crimson;
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.input {
+  margin: 1rem;
+  width: 15rem;
+  border: none;
+  border-bottom: #151515 2px solid;
+  outline: none;
+}
+
+.input-wrapper {
+  border: 1px solid #acacac;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.submit-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-wrapper > input {
+  border: none;
+  background: #000;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit-wrapper > input:disabled {
+  background: #595959;
+  color: #292929;
+  cursor: not-allowed;
+}
+
+/* ------------------------------------- */
+table {
+  width: 100%;
+}
+table thead tr {
+  background: #dcd5c5;
+}
+table thead tr h1,
+table thead tr h2,
+table thead tr .h1,
+table thead tr .h2,
+table thead tr h3,
+table thead tr .h3,
+table thead tr h4,
+table thead tr .h4 {
+  color: #151515;
+}
+table thead tr a {
+  color: #0075b0;
+}
+table thead tr a:hover,
+table thead tr a:focus {
+  color: white;
+}
+table tbody tr:nth-of-type(even) {
+  background: #e2e2e2;
+}
+table td,
+table th {
+  padding: 8px 14px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+table td a,
+table th a {
+  font-weight: bold;
+  color: #00918a;
+}
+table th {
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-family: 'Gotham SSm A', 'Gotham SSm B', Helvetica, sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+  max-width: 800px;
+  line-height: inherit;
+  color: #151515;
+}
+table th.PrimaryFont {
+  text-transform: none;
+}
+
+/* ------------------------------------- */
+
+.tab-button {
+  border-radius: 0;
+  outline: none;
+}
+
+.tab-button:focus {
+  outline: none;
+}
+
+.tab-button.active {
+  background-color: #ccc;
+}
+
+.tab-content {
+  padding: 16px;
+  border: 1px solid #ccc;
+}
