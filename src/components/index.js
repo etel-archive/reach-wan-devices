@@ -15,3 +15,5 @@ export { default as PortForwording } from './firewall/PortForwording';
 export { default as Natting } from './firewall/Natting';
 
 export { default as RoutingTable } from './routing/RoutingTable';
+
+export { default as AppStatus } from './others/AppStatus';

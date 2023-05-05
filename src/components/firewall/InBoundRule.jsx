@@ -20,7 +20,7 @@ const InboundRuleForm = () => {
       protocol: protocolRef.current.value,
       ipaddress: ipAddressRef.current.value,
       source: sourceRef.current.value,
-      ports: portsRef.current.value,
+      port: portsRef.current.value,
       interface: interfaceRef.current.value,
     };
     const res = await postData('/inbound_rule', jsonBody);

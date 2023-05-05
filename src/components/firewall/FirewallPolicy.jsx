@@ -1,6 +1,11 @@
 import { AiOutlineDelete } from 'react-icons/ai';
-import { useDelete, useGetData } from '../../hooks';
+import {
+  BsFillCaretDownSquareFill,
+  BsFillCaretUpSquareFill,
+} from 'react-icons/bs';
+import { useDelete, useGetData, usePostData } from '../../hooks';
 import { Loading } from '../utils';
+import { useState } from 'react';
 
 const FirewallPolicy = () => {
   return (
@@ -16,8 +21,11 @@ const OutboundRuleStatus = () => {
   const { data: outboundRuleStatus, isLoading } = useGetData(
     '/outbound_rule_status'
   );
+  const [disableUpDown, setDisableUpDown] = useState(false);
 
   const { deleteData, isLoading: isDeleting } = useDelete();
+
+  const { postData } = usePostData();
 
   return (
     <>
@@ -32,8 +40,8 @@ const OutboundRuleStatus = () => {
               <th>Destination</th>
               <th>Interface</th>
               <th>Port</th>
-              <th>Source</th>
               <th>Rule No</th>
+              <th>Source</th>
               <th>Action</th>
               <th>Delete</th>
             </tr>
@@ -44,8 +52,38 @@ const OutboundRuleStatus = () => {
                 <td>{entry.destination}</td>
                 <td>{entry.interface}</td>
                 <td>{entry.port}</td>
+                <td style={{ display: 'flex', justifyContent: 'space-around' }}>
+                  <span>{entry.rule_number}</span>
+                  <span style={{ display: 'flex', gap: '0 10px' }}>
+                    <BsFillCaretUpSquareFill
+                      size={15}
+                      cursor={disableUpDown ? 'not-allowed' : 'pointer'}
+                      aria-disabled={disableUpDown}
+                      onClick={async () => {
+                        setDisableUpDown(true);
+                        await postData(
+                          '/outbound_rule_up',
+                          JSON.stringify(entry)
+                        );
+                        window.location.reload();
+                      }}
+                    />
+                    <BsFillCaretDownSquareFill
+                      size={15}
+                      cursor={disableUpDown ? 'not-allowed' : 'pointer'}
+                      aria-disabled={disableUpDown}
+                      onClick={async () => {
+                        setDisableUpDown(true);
+                        await postData(
+                          '/outbound_rule_down',
+                          JSON.stringify(entry)
+                        );
+                        window.location.reload();
+                      }}
+                    />
+                  </span>
+                </td>
                 <td>{entry.source}</td>
-                <td>{entry.rule_number}</td>
                 <td>
                   {entry.action.toLowerCase() === 'deny' ? (
                     <>🚫 DENY</>
@@ -60,7 +98,7 @@ const OutboundRuleStatus = () => {
                   aria-disabled={isDeleting}
                 >
                   <AiOutlineDelete
-                    size={20}
+                    size={15}
                     color="crimson"
                     style={{ cursor: 'pointer' }}
                   />
@@ -78,8 +116,11 @@ const InboundRuleStatus = () => {
   const { data: inboundRuleStatus, isLoading } = useGetData(
     '/inbound_rule_status'
   );
+  const [disableUpDown, setDisableUpDown] = useState(false);
 
   const { deleteData, isLoading: isDeleting } = useDelete();
+
+  const { postData } = usePostData();
 
   return (
     <>
@@ -94,8 +135,8 @@ const InboundRuleStatus = () => {
               <th>Destination</th>
               <th>Interface</th>
               <th>Port</th>
-              <th>Source</th>
               <th>Rule No</th>
+              <th>Source</th>
               <th>Action</th>
               <th>Delete</th>
             </tr>
@@ -106,8 +147,38 @@ const InboundRuleStatus = () => {
                 <td>{entry.destination}</td>
                 <td>{entry.interface}</td>
                 <td>{entry.port}</td>
+                <td style={{ display: 'flex', justifyContent: 'space-around' }}>
+                  <span>{entry.rule_number}</span>
+                  <span style={{ display: 'flex', gap: '0 10px' }}>
+                    <BsFillCaretUpSquareFill
+                      size={15}
+                      cursor={disableUpDown ? 'not-allowed' : 'pointer'}
+                      aria-disabled={disableUpDown}
+                      onClick={async () => {
+                        setDisableUpDown(true);
+                        await postData(
+                          '/inbound_rule_up',
+                          JSON.stringify(entry)
+                        );
+                        window.location.reload();
+                      }}
+                    />
+                    <BsFillCaretDownSquareFill
+                      size={15}
+                      cursor={disableUpDown ? 'not-allowed' : 'pointer'}
+                      aria-disabled={disableUpDown}
+                      onClick={async () => {
+                        setDisableUpDown(true);
+                        await postData(
+                          '/inbound_rule_down',
+                          JSON.stringify(entry)
+                        );
+                        window.location.reload();
+                      }}
+                    />
+                  </span>
+                </td>
                 <td>{entry.source}</td>
-                <td>{entry.rule_number}</td>
                 <td>
                   {entry.action.toLowerCase() === 'deny' ? (
                     <>🚫 DENY</>
@@ -122,7 +193,7 @@ const InboundRuleStatus = () => {
                   aria-disabled={isDeleting}
                 >
                   <AiOutlineDelete
-                    size={20}
+                    size={15}
                     color="crimson"
                     style={{ cursor: 'pointer' }}
                   />
