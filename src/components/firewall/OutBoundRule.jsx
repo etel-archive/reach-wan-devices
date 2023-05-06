@@ -18,7 +18,7 @@ const OutboundRuleForm = () => {
     const jsonBody = {
       action: actionRef.current.value,
       protocol: protocolRef.current.value,
-      ipaddress: ipAddressRef.current.value,
+      destination: ipAddressRef.current.value,
       source: sourceRef.current.value,
       port: portsRef.current.value,
       interface: interfaceRef.current.value,
@@ -59,7 +59,7 @@ const OutboundRuleForm = () => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="ipAddress">IP Address: </label> <br />
+            <label htmlFor="ipAddress">Destination: </label> <br />
             <input
               id="ipAddress"
               type="text"
@@ -81,7 +81,7 @@ const OutboundRuleForm = () => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="ports">Ports: </label> <br />
+            <label htmlFor="ports">Port: </label> <br />
             <input
               id="ports"
               type="text"
